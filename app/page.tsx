@@ -6,48 +6,38 @@ export default function CVPage() {
     <div className="min-h-screen bg-slate-50 text-slate-900 font-sans">
       {/* Header / Hero */}
       <header className="bg-slate-900 text-white py-16 px-6">
-
-
-
-
         <div className="max-w-4xl mx-auto">
-
-<table style={{ width: '100%', borderCollapse: 'collapse' }}>
-      <tbody>
+          <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+            <tbody>
               <tr>
-                <td><h1 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">Juan Sebastián Navarro G.</h1>
-            <p className="text-xl text-blue-400 font-medium mb-8">
-              Project Manager Senior | Transformación Digital | Scrum Master | Project Recovery
-            </p>
-
-            <div className="flex flex-wrap gap-4">
-              <a href="mailto:snavarro@live.cl" className="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 px-4 py-2 rounded-lg transition border border-slate-700">
-                <Mail size={18} /> snavarro@live.cl
-              </a>
-              <a href="https://linkedin.com/in/jsnavarrog" target="_blank" className="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 px-4 py-2 rounded-lg transition border border-slate-700">
-                <Link size={18} /> LinkedIn
-              </a>
-              <a 
-                href="/CV_JSNG_202604.pdf" 
-                download 
-                className="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 px-4 py-2 rounded-lg transition font-bold shadow-lg"
-              >
-                <FileDown size={18} /> Descargar CV Completo (PDF)
-              </a>
-            </div></td> {/* Celda vacía para alinear bajo el encabezado */}
-                <td><div className="flex flex-wrap gap-4">
-              <img src="/profile_JSNG.jpg" alt="Foto de Perfil" className="w-48 h-48 rounded-full object-cover border-4 border-white shadow-lg" />
-            </div></td>
+                <td>
+                  <h1 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">Juan Sebastián Navarro G.</h1>
+                  <p className="text-xl text-blue-400 font-medium mb-8">
+                    Project Manager Senior | Transformación Digital | Scrum Master | Project Recovery
+                  </p>
+                  <div className="flex flex-wrap gap-4">
+                    <a href="mailto:snavarro@live.cl" className="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 px-4 py-2 rounded-lg transition border border-slate-700">
+                      <Mail size={18} /> snavarro@live.cl
+                    </a>
+                    <a href="https://linkedin.com/in/jsnavarrog" target="_blank" className="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 px-4 py-2 rounded-lg transition border border-slate-700">
+                      <Link size={18} /> LinkedIn
+                    </a>
+                    <a 
+                      href="/CV_JSNG_202604.pdf" 
+                      download 
+                      className="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 px-4 py-2 rounded-lg transition font-bold shadow-lg">
+                      <FileDown size={18} /> Descargar CV Completo (PDF)
+                    </a>
+                  </div>
+                </td>
+                <td>
+                  <div className="flex flex-wrap gap-4">
+                    <img src="/profile_JSNG.jpg" alt="Foto de Perfil" className="w-48 h-48 rounded-full object-cover border-4 border-white shadow-lg" />
+                  </div>
+                </td>
               </tr>
-      </tbody>
-    </table>
-
-
-
-
-          
-            
-            
+            </tbody>
+          </table>   
         </div>
       </header>
 
@@ -138,19 +128,28 @@ export default function CVPage() {
   );
 }
 
-function ExperienceItem({ company, role, period, points }) {
+// Definimos qué información recibe el componente
+interface ExperienceProps {
+  company: string;
+  role: string;
+  period: string;
+  points: string[];
+}
+
+// Aplicamos los tipos a la función
+function ExperienceItem({ company, role, period, points }: ExperienceProps) {
   return (
     <div className="relative">
-      <div className="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-blue-500 border-4 border-white shadow-sm" />
-      <div className="mb-2 flex flex-wrap justify-between items-baseline">
-        <h4 className="text-xl font-bold text-slate-800">{role} @ {company}</h4>
-        <span className="text-sm font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded">{period}</span>
+      <div className="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-blue-500 border-4 border-slate-900" />
+      <div className="mb-8 ml-4">
+        <h3 className="text-xl font-bold text-white">{company}</h3>
+        <p className="text-blue-400 font-medium mb-2">{role} | {period}</p>
+        <ul className="list-disc list-inside text-slate-300 space-y-2">
+          {points.map((point, index) => (
+            <li key={index}>{point}</li>
+          ))}
+        </ul>
       </div>
-      <ul className="space-y-1 text-slate-600 text-sm leading-relaxed">
-        {points.map((point, i) => (
-          <li key={i}>• {point}</li>
-        ))}
-      </ul>
     </div>
   );
 }
