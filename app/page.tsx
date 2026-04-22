@@ -73,7 +73,7 @@ export default function CVPage() {
               role="Project Manager II" 
               period="2020 - 2025" 
               points={[
-                "Gestión de portafolio para clientes críticos: Scotiabank, Enel, Transbank y Copec.",
+                "Gestión de portafolio para clientes críticos: Scotiabank, SMU, Telefónica, Claro, Enel, Transbank y Copec, entre otras.",
                 "Aseguré el 100% de cumplimiento normativo en proyectos de Facturación Electrónica e Integración de Sistemas.",
                 "Liderazgo de equipos multidisciplinarios en Chile, Perú y Brasil."
               ]}
