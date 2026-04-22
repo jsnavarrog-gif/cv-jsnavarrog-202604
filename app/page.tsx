@@ -47,8 +47,8 @@ export default function CVPage() {
         <section>
           <h2 className="text-2xl font-bold border-b-2 border-blue-500 pb-2 mb-4 text-slate-800">Perfil Profesional</h2>
           <p className="text-lg leading-relaxed text-slate-700" style={{ textAlign: 'justify' }}>
-            Más de **15 años de trayectoria** liderando integraciones de sistemas complejos y transformación digital en Latam y Europa. 
-            Especialista en **Project Recovery**, estabilizando ecosistemas críticos y restableciendo confianzas ante stakeholders C-level. 
+            Más de 15 años de trayectoria liderando integraciones de sistemas complejos y transformación digital en Latam y Europa. 
+            Especialista en Project Recovery, estabilizando ecosistemas críticos y restableciendo confianzas ante stakeholders C-level. 
             Experto en soluciones SaaS y servicios transaccionales con alto foco en cumplimiento normativo y agilidad organizacional.
           </p>
         </section>
@@ -144,7 +144,7 @@ function ExperienceItem({ company, role, period, points }: ExperienceProps) {
       <div className="mb-8 ml-4">
         <h3 className="text-xl font-bold text-white">{company}</h3>
         <p className="text-blue-400 font-medium mb-2">{role} | {period}</p>
-        <ul className="list-disc list-inside text-slate-300 space-y-2">
+        <ul className="list-disc list-inside text-slate-500 space-y-2">
           {points.map((point, index) => (
             <li key={index}>{point}</li>
           ))}
