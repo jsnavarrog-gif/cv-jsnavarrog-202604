@@ -12,8 +12,8 @@ export default function CVPage() {
               <tr>
                 <td>
                   <h1 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">Juan Sebastián Navarro G.</h1>
-                  <p className="text-xl text-blue-400 font-medium mb-8">
-                    Project Manager Senior | Transformación Digital | Scrum Master | Project Recovery
+                  <p className="text-l text-blue-400 font-medium mb-8">
+                    Project Manager Senior | Scrum Master | Transformación Digital | Project Recovery
                   </p>
                   <div className="flex flex-wrap gap-4">
                     <a href="mailto:snavarro@live.cl" className="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 px-4 py-2 rounded-lg transition border border-slate-700">
@@ -47,9 +47,9 @@ export default function CVPage() {
         <section>
           <h2 className="text-2xl font-bold border-b-2 border-blue-500 pb-2 mb-4 text-slate-800">Perfil Profesional</h2>
           <p className="text-lg leading-relaxed text-slate-700" style={{ textAlign: 'justify' }}>
-            Más de 15 años de trayectoria liderando integraciones de sistemas complejos y transformación digital en Latam y Europa. 
-            Especialista en Project Recovery, estabilizando ecosistemas críticos y restableciendo confianzas ante stakeholders C-level. 
-            Experto en soluciones SaaS y servicios transaccionales con alto foco en cumplimiento normativo y agilidad organizacional.
+            <b>Más de 15 años</b> de trayectoria liderando proyectos e integraciones de sistemas complejos y transformación digital en Latam y Europa. 
+            Gestión y control en <b>Project Recovery</b>, estabilizando ecosistemas críticos y restableciendo confianzas ante stakeholders C-level. 
+            Experto en soluciones SaaS, integraciones, middleware, Facturación Electrónica, Desarrollos a medida y servicios transaccionales con alto foco en cumplimiento normativo y agilidad organizacional.
           </p>
         </section>
 
