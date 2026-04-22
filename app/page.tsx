@@ -98,7 +98,8 @@ export default function CVPage() {
               <ShieldCheck className="text-blue-600" /> Gestión y Estrategia
             </h3>
             <ul className="grid grid-cols-1 gap-2 text-sm text-slate-600">
-              <li className="flex items-center gap-2"><CheckCircle2 size={14} className="text-blue-500" /> Gestión de Proyectos, Project Recovery & Crisis Mgmt </li>
+              <li className="flex items-center gap-2"><CheckCircle2 size={14} className="text-blue-500" /> Gestión de Proyectos </li>
+              <li className="flex items-center gap-2"><CheckCircle2 size={14} className="text-blue-500" /> Project Recovery & Crisis Mgmt </li>
               <li className="flex items-center gap-2"><CheckCircle2 size={14} className="text-blue-500" /> Scrum & Metodologías Ágiles </li>
               <li className="flex items-center gap-2"><CheckCircle2 size={14} className="text-blue-500" /> Stakeholder Management (C-Level) </li>
               <li className="flex items-center gap-2"><CheckCircle2 size={14} className="text-blue-500" /> ITIL & Gestión del Cambio </li>
@@ -108,17 +109,28 @@ export default function CVPage() {
 
           <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
             <h3 className="flex items-center gap-2 font-bold text-slate-800 mb-4 text-lg">
-              <Music className="text-purple-600" /> Ingeniería y Producción
+              <Music className="text-purple-600" /> Sonido y Producción
             </h3>
             <ul className="grid grid-cols-1 gap-2 text-sm text-slate-600">
               <li className="flex items-center gap-2"><CheckCircle2 size={14} className="text-purple-500" /> Sonido, Mezcla & Masterización </li>
-              <li className="flex items-center gap-2"><CheckCircle2 size={14} className="text-purple-500" /> Cubase Expert & Mastering </li>
+              <li className="flex items-center gap-2"><CheckCircle2 size={14} className="text-purple-500" /> Cubase Mixing & Mastering </li>
+              <li className="flex items-center gap-2"><CheckCircle2 size={14} className="text-purple-500" /> Home Studio Recording </li>
               <li className="flex items-center gap-2"><CheckCircle2 size={14} className="text-purple-500" /> Composición Musical Hard Rock </li>
               <li className="flex items-center gap-2"><CheckCircle2 size={14} className="text-purple-500" /> Gestión Integral de Proyectos Musicales </li>
             </ul>
           </div>
         </section>
-
+        {/* Tech Stack */}
+        <section>
+          <h2 className="text-2xl font-bold border-b-2 border-blue-500 pb-2 mb-4">Stack Tecnológico</h2>
+          <div className="flex flex-wrap gap-3">
+            {['Gestión de Proyectos', 'Project Recovery', 'PM', 'SCRUM', 'MS Project', 'JIRA', 'Next.js', 'Docker', 'Ollama (IA)', 'XML', 'XSLT',  'Git', 'Cubase'].map(tech => (
+              <span key={tech} className="bg-slate-200 text-slate-700 px-3 py-1 rounded-full text-sm font-semibold">
+                {tech}
+              </span>
+            ))}
+          </div>
+        </section>
       </main>
 
       <footer className="bg-slate-100 py-12 text-center text-slate-500 text-sm border-t border-slate-200">
@@ -142,9 +154,9 @@ function ExperienceItem({ company, role, period, points }: ExperienceProps) {
     <div className="relative">
       <div className="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-blue-500 border-4 border-slate-900" />
       <div className="mb-8 ml-4">
-        <h3 className="text-xl font-bold text-white">{company}</h3>
+        <h3 className="text-xl font-bold text-blue-800">{company}</h3>
         <p className="text-blue-400 font-medium mb-2">{role} | {period}</p>
-        <ul className="list-disc list-inside text-slate-500 space-y-2">
+        <ul className="list-disc list-inside text-slate-800 space-y-2">
           {points.map((point, index) => (
             <li key={index}>{point}</li>
           ))}
