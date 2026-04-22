@@ -154,7 +154,7 @@ function ExperienceItem({ company, role, period, points }: ExperienceProps) {
     <div className="relative">
       <div className="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-blue-500 border-4 border-slate-900" />
       <div className="mb-8 ml-4">
-        <h3 className="text-xl font-bold text-blue-800">{company}</h3>
+        <h3 className="text-xl font-bold text-dark-blue-500">{company}</h3>
         <p className="text-blue-400 font-medium mb-2">{role} | {period}</p>
         <ul className="list-disc list-inside text-slate-800 space-y-2">
           {points.map((point, index) => (
