@@ -49,7 +49,7 @@ export default function CVPage() {
           <p className="text-lg leading-relaxed text-slate-700" style={{ textAlign: 'justify' }}>
             <b>Más de 15 años</b> de trayectoria liderando proyectos e integraciones de sistemas complejos y transformación digital en Latam y Europa. 
             Gestión y control en <b>Project Recovery</b>, estabilizando ecosistemas críticos y restableciendo confianzas ante stakeholders C-level. 
-            Experto en soluciones SaaS, integraciones, middleware, Facturación Electrónica, Desarrollos a medida, Ciclo de vida de entrega continua desde la gestión estratégica y servicios transaccionales con alto foco en cumplimiento normativo y agilidad organizacional.
+            Experto en soluciones SaaS, integraciones, middleware, Facturación Electrónica, Desarrollos a medida, Ciclo de vida de entrega continua desde la gestión estratégica y Servicios Transaccionales con alto foco en cumplimiento normativo y agilidad organizacional.
           </p>
         </section>
 
