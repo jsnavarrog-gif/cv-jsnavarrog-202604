@@ -99,9 +99,6 @@ export default function CVPage() {
       <header className="bg-slate-900 text-white pt-28 pb-16 px-6 relative overflow-hidden border-b border-blue-900/30">
         <div className="max-w-4xl mx-auto relative z-10 flex flex-col md:flex-row items-center gap-10">
           <div className="flex-1 text-center md:text-left">
-            {/*<p className="inline-block bg-blue-600 text-[10px] font-black uppercase tracking-[0.3em] px-3 py-1 mb-4">
-              Project Management Specialist
-            </p>*/}
             <h1 className="text-4xl md:text-6xl font-black mb-4 tracking-tighter uppercase italic">
               Juan Sebastián <span className="text-blue-500">Navarro G.</span>
             </h1>
@@ -121,8 +118,7 @@ export default function CVPage() {
                 whileTap={{ scale: 0.95 }}
                 href="/CV_JSNG_202604.pdf" 
                 download 
-                className="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 px-6 py-2 rounded-lg transition font-bold shadow-lg text-xs"
-              >
+                className="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 px-6 py-2 rounded-lg transition font-bold shadow-lg text-xs">
                 <FileDown size={16} /> Descargar PDF
               </motion.a>
             </div>
@@ -132,8 +128,7 @@ export default function CVPage() {
             animate={{ scale: 1, opacity: 1 }}
             src="/profile_JSNG.jpg" 
             alt="Juan Sebastián Navarro"
-            className="w-40 h-40 md:w-52 md:h-52 rounded-full border-4 border-slate-800 shadow-2xl object-cover" 
-          />
+            className="w-40 h-40 md:w-52 md:h-52 rounded-full border-4 border-slate-800 shadow-2xl object-cover" />
         </div>
       </header>
     </section>
@@ -143,8 +138,7 @@ export default function CVPage() {
         {/* PERFIL */}
         <section id="perfil" className="scroll-mt-20">
           <h2 className="text-xs font-black text-blue-600 uppercase tracking-[0.4em] mb-6 underline decoration-2 underline-offset-8 decoration-blue-500/30">Perfil Profesional</h2>
-          <p className="text-lg md:text-xl leading-relaxed font-light text-justify text-slate-700">
-            {/*Más de <span className="font-bold text-slate-900">15 años</span> de trayectoria liderando proyectos complejos y transformación digital en Latam y Europa. Especialista en Project Recovery, estabilizando ecosistemas críticos y restableciendo confianzas ante stakeholders C-level. Experto en soluciones SaaS, integraciones y agilidad organizacional con alto foco en cumplimiento normativo.*/}
+          <p className="text-[15px] leading-relaxed font-light text-justify text-slate-700">
             Más de <span className="font-bold text-slate-900">15 años</span> de trayectoria liderando proyectos e integraciones de sistemas complejos y transformación digital en Latam y Europa. Gestión y control en <span className="text-blue-600 font-medium italic">Project Recovery</span>, estabilizando ecosistemas críticos y restableciendo confianzas ante stakeholders C-level. Experto en soluciones SaaS, integraciones, middleware, Facturación Electrónica, Desarrollos a medida, Ciclo de vida de entrega continua desde la gestión estratégica y Servicios Transaccionales con alto foco en cumplimiento normativo y agilidad organizacional.
           </p>
         </section>
@@ -158,8 +152,7 @@ export default function CVPage() {
                 key={exp.id}
                 whileHover={{ x: 10 }}
                 onClick={() => setSelectedExp(exp)}
-                className="relative cursor-pointer group"
-              >
+                className="relative cursor-pointer group">
                 <div className="absolute -left-[31px] md:-left-[39px] top-1.5 w-4 h-4 md:w-5 md:h-5 rounded-full bg-slate-900 border-4 border-blue-500 group-hover:scale-125 transition-transform" />
                 <h3 className="text-xl md:text-2xl font-black uppercase tracking-tighter group-hover:text-blue-600 transition-colors">{exp.company}</h3>
                 <p className="text-blue-600 font-bold text-[10px] md:text-xs uppercase mb-2 italic">{exp.role} / {exp.period}</p>
@@ -205,7 +198,7 @@ export default function CVPage() {
         <section id="tech" className="scroll-mt-20 pb-10">
           <h2 className="text-xs font-black text-blue-600 uppercase tracking-[0.4em] mb-10">Stack Tecnológico</h2>
           <div className="flex flex-wrap justify-center gap-2 md:gap-3">
-            {['SCRUM', 'JIRA', 'Next.js', 'Docker', 'Git', 'SAP', 'MS Project'].map(tech => (
+            {['IA', 'Agentes IA', 'Machine Learning', 'Docker', 'N8N', 'Git', 'Next.js', 'SCRUM', 'JIRA', 'Facturación Electrónica', 'Custom Design & Development', 'MS Project', 'Cubase', 'FabFilter'].map(tech => (
               <span key={tech} className="bg-white text-slate-800 px-3 md:px-4 py-2 rounded-full text-[9px] md:text-[10px] font-black uppercase border border-slate-200 shadow-sm">
                 {tech}
               </span>
@@ -262,8 +255,7 @@ export default function CVPage() {
         whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}
         href="https://wa.me/56997973249?text=Hola%20Juan%20Sebastian,%20vi%20tu%20sitio%20y%20me%20gustaria%20conversar"
         target="_blank"
-        className="fixed bottom-6 right-6 z-[110] bg-green-500 text-white p-3 md:p-4 rounded-full shadow-2xl border-2 border-white flex items-center justify-center group"
-      >
+        className="fixed bottom-6 right-6 z-[110] bg-green-500 text-white p-3 md:p-4 rounded-full shadow-2xl border-2 border-white flex items-center justify-center group">
         <MessageCircle size={24} />
         <span className="absolute right-16 bg-slate-900 text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap hidden md:block">
           ¿Hablamos?
