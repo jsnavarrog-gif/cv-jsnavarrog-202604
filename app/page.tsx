@@ -14,12 +14,12 @@ const experiences = [
     company: "Soho Humantech",
     role: "Project Manager SSR",
     period: "2025",
-    summary: "Gestión de plataformas SaaS e Inteligencia Artificial.",
+    summary: "Gestión de proyectos End-to-End y desarrollo de plataformas SaaS, Design System e Inteligencia Artificial.",
     details: [
-      "Lideré iniciativas de Design System para el sector energía, optimizando procesos operativos en terreno.",
-      "Gestioné el desarrollo de plataformas SaaS críticas bajo marcos Scrum e IA.",
-      "Reporte directo a Directorios, asegurando transparencia en hitos de cumplimiento.",
-      "Implementación de flujos de trabajo automatizados para optimizar el delivery."
+      "Lideré células multidisciplinarias (Desarrollo, QA, Líderes Técnicos) utilizando herramientas de Inteligencia Artificial y JIRA para el manejo de backlog y ceremonias, asegurando transparencia y cumplimiento de hitos.",
+      "Sector Energía: Dirigí iniciativa de Design System (Research, Discovery, Blueprint) logrando la optimización de procesos operativos y cierre de brechas en terreno.",
+      "Sector Industrial (Aceros): Gestioné el desarrollo de una plataforma SaaS para el control y administración de capacitaciones críticas.",
+      "Reporte directo a PMO y Gerencia, con presentaciones de avance a Directorios y coordinación con equipos TI internos y externos."
     ]
   },
   {
@@ -27,12 +27,15 @@ const experiences = [
     company: "Sovos",
     role: "Project Manager II",
     period: "2020 - 2025",
-    summary: "Dirección de portafolio para cuentas regionales críticas.",
+    summary: "Dirección de portafolio de cuentas críticas, proyectos de integración y transformación digital para Grandes Cuentas en Chile, Perú y Brasil.",
     details: [
-      "Gestión de portafolio para clientes críticos: Scotiabank, SMU, Telefónica, Enel y Copec.",
+      "Project Recovery: Estabilización de ecosistemas críticos con alto foco en cumplimiento.",
+      "Definición de estrategias de normalización y control ante escenarios críticos de alta demanda. Excelencia relacional con clientes.",
+      "Lideré innovaciones tecnológicas e implementaciones normativas para clientes críticos de la compañía como Scotiabank, Transbank, Grupo Claro, Grupo Telefónica, ENTEL, Copec, Autopistas, ESSBIO, Grupo Banmédica, SK, Grupo Astara, Grupo Derco, Tricolor, Larraín Vial, entre muchas otras, abarcando variados sectores empresariales.",
+      "Supervisé proyectos de alta complejidad en Facturación Electrónica, Integración de Sistemas, Servicios Transaccionales, Digitalización de Procesos, asegurando cumplimiento normativo y corporativo, entregas claras y estratégicas a clientes finales.",
+      "Lideré equipos coordinando recursos como Technical & Solutions Consultants y de diferentes áreas, bajo demanda, para asegurar la continuidad operativa y satisfacción del cliente.",
       "Aseguré el 100% de cumplimiento normativo en proyectos de Facturación Electrónica e Integración.",
-      "Liderazgo de equipos multidisciplinarios en Chile, Perú y Brasil.",
-      "Project Recovery: Estabilización de ecosistemas críticos con alto foco en cumplimiento."
+      "Liderazgo de equipos multidisciplinarios en Chile, Perú y Brasil."
     ]
   },
   {
@@ -40,23 +43,25 @@ const experiences = [
     company: "Acepta.com",
     role: "Consultor de Proyectos Senior",
     period: "2013 - 2020",
-    summary: "Hito DIPRES y automatización de operaciones estatales.",
+    summary: "Hito DIPRES y automatización de operaciones estatales. Proyectos de integración y servicios de Facturación Electrónica y desarrollos a medida.",
     details: [
-      "Hito DIPRES: Lideré la automatización de operaciones contables del Estado de Chile.",
-      "Coordinación de equipos técnicos en Bélgica, Turquía, Italia y Latam.",
-      "Responsable de la ejecución técnica y estratégica de Grandes Cuentas.",
-      "Diseño de arquitecturas de integración para servicios transaccionales."
+      "Hito DIPRES: Lideré la automatización de operaciones contables del Estado de Chile. Proyecto de interconexión y automatización de operaciones contables, agilizando pagos para mejorar el flujo de caja del Estado de Chile, integrando plataformas de pago, cobro, asignación y compras públicas.",
+      "En 2013 inicié mi trayectoria en la compañía participando en proyectos operativos, evolucionando rápidamente a la gestión de clientes estratégicos en 2014, con responsabilidad total en la ejecución y personal técnico a cargo.",
+      "En 2016, tomé el rol de Jefe de Proyectos para Grandes Cuentas. Coordiné equipos multidisciplinarios para proyectos en Chile, Bélgica, Turquía, Italia y Latam, abriendo nuevos nichos de negocio.",
+      "En 2018, asumí como Consultor de Proyectos para Grandes Cuentas, liderando implementaciones tecnológicas y coordinando equipos técnicos, de redes e infraestructura."
     ]
   },
   {
     id: 4,
     company: "Proyectos Anteriores",
-    role: "Jefe de Proyectos",
-    period: "2010 - 2013",
+    role: "Rebsol: Jefe de Proyectos y Otras Experiencias",
+    period: "2007- 2013",
     summary: "Foco en sector público y privado (Salud/Desarrollo).",
     details: [
-      "Gestión de proyectos de implementación tecnológica en redes de salud.",
-      "Liderazgo de equipos de desarrollo para soluciones a medida."
+      "Gestión integral del ciclo de vida de desarrollo de software (SDLC) para el sector salud, desde la toma de requerimientos hasta la puesta en marcha y capacitación.",
+      "Supervisión de equipos de desarrollo y QA, asegurando la calidad en entregables críticos.",
+      "Supervisión de proyectos en terreno, proporcionando soluciones inmediatas a problemáticas que requieren alta capacidad de gestión y liderazgo (área salud).",
+      "Ejercí roles técnicos y de soporte en Image Group, Comertex, Aguas y Riles, UDLA y Práctica Laboral en Komatsu Cummins."
     ]
   }
 ];
@@ -139,7 +144,8 @@ export default function CVPage() {
         <section id="perfil" className="scroll-mt-20">
           <h2 className="text-xs font-black text-blue-600 uppercase tracking-[0.4em] mb-6 underline decoration-2 underline-offset-8 decoration-blue-500/30">Perfil Profesional</h2>
           <p className="text-lg md:text-xl leading-relaxed font-light text-justify text-slate-700">
-            Más de <span className="font-bold text-slate-900">15 años</span> de trayectoria liderando proyectos complejos y transformación digital en Latam y Europa. Especialista en <span className="text-blue-600 font-medium italic">Project Recovery</span>, estabilizando ecosistemas críticos y restableciendo confianzas ante stakeholders C-level. Experto en soluciones SaaS, integraciones y agilidad organizacional con alto foco en cumplimiento normativo.
+            {/*Más de <span className="font-bold text-slate-900">15 años</span> de trayectoria liderando proyectos complejos y transformación digital en Latam y Europa. Especialista en Project Recovery, estabilizando ecosistemas críticos y restableciendo confianzas ante stakeholders C-level. Experto en soluciones SaaS, integraciones y agilidad organizacional con alto foco en cumplimiento normativo.*/}
+            Más de <span className="font-bold text-slate-900">15 años</span> de trayectoria liderando proyectos e integraciones de sistemas complejos y transformación digital en Latam y Europa. Gestión y control en <span className="text-blue-600 font-medium italic">Project Recovery</span>, estabilizando ecosistemas críticos y restableciendo confianzas ante stakeholders C-level. Experto en soluciones SaaS, integraciones, middleware, Facturación Electrónica, Desarrollos a medida, Ciclo de vida de entrega continua desde la gestión estratégica y Servicios Transaccionales con alto foco en cumplimiento normativo y agilidad organizacional.
           </p>
         </section>
 
@@ -254,7 +260,7 @@ export default function CVPage() {
       <motion.a
         initial={{ scale: 0 }} animate={{ scale: 1 }}
         whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}
-        href="https://wa.me/56997973249"
+        href="https://wa.me/56997973249?text=Hola%20Juan%20Sebastian,%20vi%20tu%20sitio%20y%20me%20gustaria%20conversar"
         target="_blank"
         className="fixed bottom-6 right-6 z-[110] bg-green-500 text-white p-3 md:p-4 rounded-full shadow-2xl border-2 border-white flex items-center justify-center group"
       >
