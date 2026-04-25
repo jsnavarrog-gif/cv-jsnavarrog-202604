@@ -172,7 +172,12 @@ export default function CVPage() {
               <ShieldCheck className="text-blue-600" /> Gestión
             </h3>
             <ul className="space-y-3">
-              {['Project Recovery & Crisis', 'Scrum & Agile', 'Stakeholder Mgmt (C-Level)', 'ITIL & Change Mgmt'].map((skill) => (
+              {['Project Recovery & Crisis Management',
+                'Scrum & Metodologías Ágiles',
+                'Stakeholder Management (C-Level)',
+                'ITIL & Gestión del Cambio',
+                'Ciclo de Vida de Entrega Continua',
+                'Inglés B2 (4A Upper Intermediate by Blended Learning)'].map((skill) => (
                 <li key={skill} className="flex items-center gap-3 text-sm text-slate-600 font-medium">
                   <CheckCircle2 size={16} className="text-blue-500" /> {skill}
                 </li>
@@ -185,7 +190,7 @@ export default function CVPage() {
               <Music /> Actividades Paralelas
             </h3>
             <ul className="space-y-3">
-              {['Producción de Sonido & Mezcla', 'Composición Hard Rock', 'Gestión de Proyectos Musicales'].map((item) => (
+              {['Home Studio', 'Producción de Sonido & Mezcla', 'Composición Hard Rock', 'Cubase advanced user', 'Gestión de Proyectos Musicales',].map((item) => (
                 <li key={item} className="flex items-center gap-3 text-sm text-slate-300">
                   <div className="w-1.5 h-1.5 bg-blue-500 rounded-full" /> {item}
                 </li>
