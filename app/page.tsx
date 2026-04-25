@@ -102,8 +102,8 @@ export default function CVPage() {
             <h1 className="text-4xl md:text-6xl font-black mb-4 tracking-tighter uppercase italic">
               Juan Sebastián <span className="text-blue-500">Navarro G.</span>
             </h1>
-            <p className="text-sm md:text-base text-slate-400 font-medium mb-8 max-w-xl">
-              Senior Project Manager | Scrum Master | Transformación Digital | Project Recovery
+            <p className="text-[8px] md:text-base text-slate-400 font-medium mb-8 max-w-xl">
+              Senior Project Manager | Scrum | Transformación Digital | Project Recovery
             </p>
             
             <div className="flex flex-wrap justify-center md:justify-start gap-4">
@@ -128,7 +128,7 @@ export default function CVPage() {
             animate={{ scale: 1, opacity: 1 }}
             src="/profile_JSNG.jpg" 
             alt="Juan Sebastián Navarro"
-            className="w-40 h-40 md:w-52 md:h-52 rounded-full border-4 border-slate-800 shadow-2xl object-cover" />
+            className="w-35 h-35 md:w-52 md:h-52 rounded-full border-4 border-slate-800 shadow-2xl object-cover" />
         </div>
       </header>
     </section>
