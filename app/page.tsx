@@ -69,6 +69,23 @@ const experiences = [
 export default function CVPage() {
   const [selectedExp, setSelectedExp] = useState<typeof experiences[0] | null>(null);
 
+  // EFECTO PARA BLOQUEAR ZOOM EN MÓVIL
+  useEffect(() => {
+    // 1. Inyectar meta tag para evitar escalado
+    const meta = document.createElement('meta');
+    meta.name = "viewport";
+    meta.content = "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no";
+    document.getElementsByTagName('head')[0].appendChild(meta);
+
+    // 2. Prevenir zoom por gestos (especialmente en iOS Safari)
+    const handleGestureStart = (e: Event) => e.preventDefault();
+    document.addEventListener('gesturestart', handleGestureStart);
+
+    return () => {
+      document.removeEventListener('gesturestart', handleGestureStart);
+    };
+  }, []);
+
   useEffect(() => {
     if (selectedExp) document.body.style.overflow = 'hidden';
     else document.body.style.overflow = 'unset';
@@ -77,7 +94,7 @@ export default function CVPage() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 font-sans scroll-smooth">
       
-      {/* NAVBAR (Ahora visible en todos los dispositivos con ajuste de tamaño) */}
+      {/* NAVBAR */}
       <nav className="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] md:w-auto">
         <motion.ul 
           initial={{ y: -100, opacity: 0 }}
