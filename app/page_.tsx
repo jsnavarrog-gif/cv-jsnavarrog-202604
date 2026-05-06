@@ -8,6 +8,33 @@ import {
 } from 'lucide-react';
 
 // --- DATOS CENTRALIZADOS ---
+const content = {
+  es: {
+    nav: ['Inicio', 'Perfil', 'Experiencia', 'Habilidades', 'Tech'],
+    heroSub: 'Senior Project Manager | Scrum Master | Transformación Digital | Recuperación de Proyectos',
+    heroSectionTitle: 'Perfil Profesional',
+    heroText1: 'Más de ',
+    heroText2: '15 años ',
+    heroText3: 'de trayectoria liderando proyectos e integraciones de sistemas complejos y transformación digital en Latam y Europa. Gestión y control en ',
+    heroText4: 'Project Recovery',
+    heroText5: ', estabilizando ecosistemas críticos y restableciendo confianzas ante stakeholders C-level. Experto en soluciones SaaS, integraciones, middleware, Facturación Electrónica, Desarrollos a medida, Ciclo de vida de entrega continua desde la gestión estratégica y Servicios Transaccionales con alto foco en cumplimiento normativo y agilidad organizacional.',
+    downloadBtn: 'Descargar PDF',
+    // ... agrega el resto
+  },
+  en: {
+    nav: ['Home', 'Profile', 'Experience', 'Skills', 'Tech'],
+    heroSub: 'Senior Project Manager | Scrum Master | Digital Transformation | Project Recovery',
+    heroSectionTitle: 'Professional Profile',
+    heroText1: 'Over ',
+    heroText2: '15 years ',
+    heroText3: 'of experience spearheading complex system integrations and digital transformation projects across Latam and Europe. Management and control in ',
+    heroText4: 'Project Recovery',
+    heroText5: ', stabilizing critical ecosystems and restoring stakeholder trust at the C-level. Expert in SaaS solutions, system integrations, middleware, Electronic Invoicing, custom developments, the management of continuous delivery lifecycles from a strategic perspective and overseeing Transactional Services with a sharp focus on regulatory compliance and organizational agility.',
+    downloadBtn: 'Download PDF',
+    // ... agrega el resto
+  }
+};
+
 const experiences = [
   {
     id: 1,
@@ -69,6 +96,9 @@ const experiences = [
 export default function CVPage() {
   const [selectedExp, setSelectedExp] = useState<typeof experiences[0] | null>(null);
 
+  const [lang, setLang] = useState<'es' | 'en'>('es');
+const t = content[lang]; // "t" será nuestro traductor dinámico
+
   useEffect(() => {
     if (selectedExp) document.body.style.overflow = 'hidden';
     else document.body.style.overflow = 'unset';
@@ -103,7 +133,8 @@ export default function CVPage() {
               Juan Sebastián <span className="text-blue-500">Navarro G.</span>
             </h1>
             <p className="text-[8px] md:text-base text-slate-400 font-medium mb-8 max-w-xl">
-              Senior Project Manager | Scrum | Transformación Digital | Project Recovery
+              {t.heroSub}
+              {/*Senior Project Manager | Scrum | Transformación Digital | Project Recovery*/}
             </p>
             
             <div className="flex flex-wrap justify-center md:justify-start gap-4">
@@ -121,6 +152,12 @@ export default function CVPage() {
                 className="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 px-6 py-2 rounded-lg transition font-bold shadow-lg text-xs">
                 <FileDown size={16} /> Descargar PDF
               </motion.a>
+              <button 
+  onClick={() => setLang(lang === 'es' ? 'en' : 'es')}
+  className="border border-blue-500/50 px-2 py-1 rounded text-[10px] font-black uppercase hover:bg-blue-600 transition-colors"
+>
+  {lang === 'es' ? 'English Version' : 'Versión Español'}
+</button>
             </div>
           </div>
           <motion.img 
@@ -129,7 +166,9 @@ export default function CVPage() {
             src="/profile_JSNG.jpg" 
             alt="Juan Sebastián Navarro"
             className="w-35 h-35 md:w-52 md:h-52 rounded-full border-4 border-slate-800 shadow-2xl object-cover" />
+            
         </div>
+       
       </header>
     </section>
 
@@ -137,9 +176,12 @@ export default function CVPage() {
         
         {/* PERFIL */}
         <section id="perfil" className="scroll-mt-20">
-          <h2 className="text-xs font-black text-blue-600 uppercase tracking-[0.4em] mb-6 underline decoration-2 underline-offset-8 decoration-blue-500/30">Perfil Profesional</h2>
+          <h2 className="text-xs font-black text-blue-600 uppercase tracking-[0.4em] mb-6 underline decoration-2 underline-offset-8 decoration-blue-500/30">{t.heroSectionTitle}</h2>
           <p className="text-[15px] leading-relaxed font-light text-justify text-slate-700">
+            {t.heroText1}<span className="font-bold text-slate-900">{t.heroText2}</span>{t.heroText3}<span className="text-blue-600 font-medium italic">{t.heroText4}</span>{t.heroText5}
+            {/*}
             Más de <span className="font-bold text-slate-900">15 años</span> de trayectoria liderando proyectos e integraciones de sistemas complejos y transformación digital en Latam y Europa. Gestión y control en <span className="text-blue-600 font-medium italic">Project Recovery</span>, estabilizando ecosistemas críticos y restableciendo confianzas ante stakeholders C-level. Experto en soluciones SaaS, integraciones, middleware, Facturación Electrónica, Desarrollos a medida, Ciclo de vida de entrega continua desde la gestión estratégica y Servicios Transaccionales con alto foco en cumplimiento normativo y agilidad organizacional.
+            */}
           </p>
         </section>
 
@@ -250,8 +292,10 @@ export default function CVPage() {
         )}
       </AnimatePresence>
 
-      <footer className="bg-slate-900 py-12 text-center text-slate-600 text-[9px] tracking-[0.5em] border-t border-slate-800 px-6">
-        <p>© 2026 Juan Sebastián Navarro G. | Management & Tech</p>
+      <footer className="bg-slate-900 py-7 text-center text-slate-400 text-[12px] tracking-[0.5em] border-t border-slate-800 px-6">
+        <p>© 2026 Juan Sebastián Navarro G. | Management & Tech<br/>
+        <a href="mailto:snavarro@live.cl" className="text-xs font-black tracking-widest text-cyan-600 hover:text-cyan-700 underline">¿Quieres agendar una reunión?</a>
+        </p>
       </footer>
 
       {/* WHATSAPP */}
