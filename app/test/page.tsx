@@ -28,10 +28,12 @@ const content = {
     heroSub: 'Senior Project Manager | Scrum Master | Digital Transformation | Project Recovery',
     heroSectionTitle: 'Professional Profile',
     heroText1: 'Over ',
-    heroText2: '15 years ',
-    heroText3: 'of experience spearheading complex system integrations and digital transformation projects across Latam and Europe. Management and control in ',
-    heroText4: 'Project Recovery',
-    heroText5: ', stabilizing critical ecosystems and restoring stakeholder trust at the C-level. Expert in SaaS solutions, system integrations, middleware, Electronic Invoicing, custom developments, the management of continuous delivery lifecycles from a strategic perspective and overseeing Transactional Services with a sharp focus on regulatory compliance and organizational agility.',
+    heroText2: '15 years',
+    heroText3: ' at the intersection of ',
+    heroText4: 'technology, business strategy, and user experience',
+    heroText5: ', spearheading complex system integrations and digital transformation projects across Latam and Europe. Management and control in ',
+    heroText6: 'Project Recovery',
+    heroText7: ', stabilizing critical ecosystems and restoring stakeholder trust at the C-level. Expert in SaaS solutions, system integrations, middleware, Electronic Invoicing, custom developments, product lifecycle and continuous delivery from a strategic perspective management and overseeing Transactional Services with a sharp focus on regulatory compliance and organizational agility.',
     downloadBtn: 'Download PDF',
     // ... agrega el resto
   }
