@@ -11,13 +11,15 @@ import {
 const content = {
   es: {
     nav: ['Inicio', 'Perfil', 'Experiencia', 'Habilidades', 'Tech'],
-    heroSub: 'Senior Project Manager | Scrum Master | Transformación Digital | Recuperación de Proyectos',
+    heroSub: 'Senior Project & Product Manager | Scrum Master | Transformación Digital | Recuperación de Proyectos',
     heroSectionTitle: 'Perfil Profesional',
     heroText1: 'Más de ',
     heroText2: '15 años ',
-    heroText3: 'de trayectoria liderando proyectos e integraciones de sistemas complejos y transformación digital en Latam y Europa. Gestión y control en ',
-    heroText4: 'Project Recovery',
-    heroText5: ', estabilizando ecosistemas críticos y restableciendo confianzas ante stakeholders C-level. Experto en soluciones SaaS, integraciones, middleware, Facturación Electrónica, Desarrollos a medida, Ciclo de vida de entrega continua desde la gestión estratégica y Servicios Transaccionales con alto foco en cumplimiento normativo y agilidad organizacional.',
+    heroText3: 'de trayectoria en la intersección de ',
+    heroText4: 'tecnología, negocio y experiencia de usuario',
+    heroText5: ', liderando proyectos e integraciones de sistemas complejos y transformación digital en Latam y Europa. Gestión y control en ',
+    heroText6: 'Project Recovery',
+    heroText7: ', estabilizando ecosistemas críticos y restableciendo confianzas ante stakeholders C-level. Experto en soluciones SaaS, integraciones, middleware, Facturación Electrónica, Desarrollos a medida, Ciclo de vida de productos digitales, de entrega continua desde la gestión estratégica y Servicios Transaccionales con alto foco en cumplimiento normativo y agilidad organizacional.',
     downloadBtn: 'Descargar PDF',
     // ... agrega el resto
   },
@@ -178,10 +180,7 @@ const t = content[lang]; // "t" será nuestro traductor dinámico
         <section id="perfil" className="scroll-mt-20">
           <h2 className="text-xs font-black text-blue-600 uppercase tracking-[0.4em] mb-6 underline decoration-2 underline-offset-8 decoration-blue-500/30">{t.heroSectionTitle}</h2>
           <p className="text-[15px] leading-relaxed font-light text-justify text-slate-700">
-            {t.heroText1}<span className="font-bold text-slate-900">{t.heroText2}</span>{t.heroText3}<span className="text-blue-600 font-medium italic">{t.heroText4}</span>{t.heroText5}
-            {/*}
-            Más de <span className="font-bold text-slate-900">15 años</span> de trayectoria liderando proyectos e integraciones de sistemas complejos y transformación digital en Latam y Europa. Gestión y control en <span className="text-blue-600 font-medium italic">Project Recovery</span>, estabilizando ecosistemas críticos y restableciendo confianzas ante stakeholders C-level. Experto en soluciones SaaS, integraciones, middleware, Facturación Electrónica, Desarrollos a medida, Ciclo de vida de entrega continua desde la gestión estratégica y Servicios Transaccionales con alto foco en cumplimiento normativo y agilidad organizacional.
-            */}
+            {t.heroText1}<span className="font-bold text-slate-900">{t.heroText2}</span>{t.heroText3}<span className="font-bold text-slate-900">{t.heroText4}</span>{t.heroText5}<span className="text-blue-600 font-medium italic">{t.heroText6}</span>{t.heroText7}
           </p>
         </section>
 
