@@ -103,6 +103,23 @@ export default function CVPage() {
   const [lang, setLang] = useState<'es' | 'en'>('es');
 const t = content[lang]; // "t" será nuestro traductor dinámico
 
+  // EFECTO PARA BLOQUEAR ZOOM EN MÓVIL
+  useEffect(() => {
+    // 1. Inyectar meta tag para evitar escalado
+    const meta = document.createElement('meta');
+    meta.name = "viewport";
+    meta.content = "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no";
+    document.getElementsByTagName('head')[0].appendChild(meta);
+
+    // 2. Prevenir zoom por gestos (especialmente en iOS Safari)
+    const handleGestureStart = (e: Event) => e.preventDefault();
+    document.addEventListener('gesturestart', handleGestureStart);
+
+    return () => {
+      document.removeEventListener('gesturestart', handleGestureStart);
+    };
+  }, []);
+
   useEffect(() => {
     if (selectedExp) document.body.style.overflow = 'hidden';
     else document.body.style.overflow = 'unset';
