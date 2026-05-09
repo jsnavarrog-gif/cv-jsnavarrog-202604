@@ -105,8 +105,8 @@ const content = {
     profileText2: "15 years",
     profileText3: " of experience at the intersection of ",
     profileText4: "technology, business, and user experience",
-    profileText5: ". Specialist in Digital Product Lifecycle (SaaS) management and regional digital transformation. Expert in Project & ",
-    profileText6: "Product Recovery",
+    profileText5: ". Specialist in Digital Product Lifecycle (SaaS) management and regional digital transformation. Expert in ",
+    profileText6: "Project Recovery",
     profileText7: ", with a proven track record of maximizing business value and ROI through the stabilization of critical ecosystems.",
     expHeader: "Strategic Journey",
     skillsHeader: "Strategy & Discipline",
@@ -188,11 +188,28 @@ export default function CVPage() {
   const [selectedExp, setSelectedExp] = useState<any | null>(null);
   const t = content[lang];
 
-  useEffect(() => {
+    // EFECTO PARA BLOQUEAR ZOOM EN MÓVIL
+    useEffect(() => {
+      // 1. Inyectar meta tag para evitar escalado
+      const meta = document.createElement('meta');
+      meta.name = "viewport";
+      meta.content = "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no";
+      document.getElementsByTagName('head')[0].appendChild(meta);
+  
+      // 2. Prevenir zoom por gestos (especialmente en iOS Safari)
+      const handleGestureStart = (e: Event) => e.preventDefault();
+      document.addEventListener('gesturestart', handleGestureStart);
+  
+      return () => {
+        document.removeEventListener('gesturestart', handleGestureStart);
+      };
+    }, []);
+
+  {/*useEffect(() => {
     const handleGesture = (e: Event) => e.preventDefault();
     document.addEventListener('gesturestart', handleGesture);
     return () => document.removeEventListener('gesturestart', handleGesture);
-  }, []);
+  }, []);*/}
 
   useEffect(() => {
     document.body.style.overflow = selectedExp ? 'hidden' : 'unset';
