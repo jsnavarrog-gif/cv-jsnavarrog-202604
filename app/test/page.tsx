@@ -218,18 +218,22 @@ export default function CVPage() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 font-sans scroll-smooth">
       
-      {/* NAVBAR */}
+      {/* NAVBAR CORREGIDA (Visible en móviles y desktop) */}
       <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] md:w-auto">
-        <motion.ul className="flex items-center justify-between md:justify-center gap-2 md:gap-8 bg-slate-900/95 backdrop-blur-md border border-slate-700 px-4 md:px-10 py-4 rounded-2xl md:rounded-full shadow-2xl">
+        <motion.ul 
+          className="flex items-center justify-around md:justify-center gap-1 md:gap-8 bg-slate-900/95 backdrop-blur-md border border-slate-700 px-2 md:px-10 py-3 md:py-4 rounded-2xl md:rounded-full shadow-2xl">
           {t.nav.map((item) => (
-            <li key={item} className="hidden md:block">
-              <a href={`#${item.toLowerCase()}`} className="text-[10px] md:text-xs font-black uppercase tracking-wider text-slate-400 hover:text-blue-400 transition-colors">{item}</a>
+            <li key={item}>
+              <a 
+                href={`#${item.toLowerCase()}`} 
+                className="text-[9px] md:text-xs font-black uppercase tracking-tight md:tracking-wider text-slate-400 hover:text-blue-400 transition-colors px-1 md:px-0">
+                {item}
+              </a>
             </li>
           ))}
           <button 
             onClick={() => setLang(lang === 'es' ? 'en' : 'es')}
-            className="flex items-center gap-2 bg-blue-600/20 text-blue-400 border border-blue-500/30 px-3 py-1 rounded-full text-[10px] font-black uppercase hover:bg-blue-600 hover:text-white transition-all"
-          >
+            className="flex items-center gap-1 md:gap-2 bg-blue-600/20 text-blue-400 border border-blue-500/30 px-2 md:px-3 py-1 rounded-full text-[9px] md:text-[10px] font-black uppercase hover:bg-blue-600 hover:text-white transition-all ml-1 md:ml-0">
             <Globe size={12} /> {lang.toUpperCase()}
           </button>
         </motion.ul>
