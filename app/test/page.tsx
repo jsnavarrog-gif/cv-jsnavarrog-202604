@@ -4,161 +4,231 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Mail, Link, Music, ShieldCheck, 
-  FileDown, CheckCircle2, ChevronRight, X, Briefcase, MessageCircle
+  FileDown, CheckCircle2, ChevronRight, X, MessageCircle, Globe
 } from 'lucide-react';
 
-// --- DATOS CENTRALIZADOS ---
+// --- SISTEMA DE TRADUCCIONES ---
 const content = {
   es: {
-    nav: ['Inicio', 'Perfil', 'Experiencia', 'Habilidades', 'Tech'],
-    heroSub: 'Senior Project & Product Manager | Scrum Master | Transformación Digital | Recuperación de Proyectos',
-    heroSectionTitle: 'Perfil Profesional',
-    heroText1: 'Más de ',
-    heroText2: '15 años ',
-    heroText3: 'de trayectoria en la intersección de ',
-    heroText4: 'tecnología, negocio y experiencia de usuario',
-    heroText5: ', liderando proyectos e integraciones de sistemas complejos y transformación digital en Latam y Europa. Gestión y control en ',
-    heroText6: 'Project Recovery',
-    heroText7: ', estabilizando ecosistemas críticos y restableciendo confianzas ante stakeholders C-level. Experto en soluciones SaaS, integraciones, middleware, Facturación Electrónica, Desarrollos a medida, Ciclo de vida de productos digitales, de entrega continua desde la gestión estratégica y Servicios Transaccionales con alto foco en cumplimiento normativo y agilidad organizacional.',
-    downloadBtn: 'Descargar PDF',
-    // ... agrega el resto
+    nav: ['Home', 'Perfil', 'Experiencia', 'Skills', 'Tech'],
+    heroTitle: "Juan Sebastián",
+    heroSubtitle: "Senior Project & Product Manager | SCRUM | Transformación Digital | Project Recovery",
+    downloadBtn: "Descargar CV",
+    profileTitle: "Perfil Profesional",
+    profileText1: "Líder estratégico con más de ",
+    profileText2: "15 años",
+    profileText3: " de trayectoria en la intersección de ",
+    profileText4: "tecnología, negocio y experiencia de usuario",
+    profileText5: ". Especialista en la gestión del ciclo de vida de productos digitales (SaaS) y transformación digital a escala regional. Experto en ",
+    profileText6: "Project Recovery",
+    profileText7: ", con un enfoque probado en maximizar el valor de negocio y el ROI mediante la estabilización de ecosistemas críticos.",
+    expHeader: "Trayectoria Estratégica",
+    skillsHeader: "Estrategia & Disciplina",
+    mgmtTitle: "Gestión & Leadership",
+    musicTitle: "Actividades Paralelas",
+    techHeader: "Stack Tecnológico",
+    ctaModal: "¿Quieres ver los KPIs detrás de la magia?",
+    ctaLink: "Descarga el detalle técnico aquí",
+    skillsList: [
+      'Project Recovery & Manejo de Crisis',
+      'Scrum & Metodologías Ágiles',
+      'Gestión de Stakeholders (C-Level)',
+      'ITIL & Gestión del Cambio',
+      'Ciclo de Vida de Entrega Continua',
+      'Inglés B2 (Upper Intermediate)'
+    ],
+    musicList: [
+      'Estudio en casa & Diseño de sonido',
+      'Producción de Sonido & Mezcla',
+      'Composición Hard Rock',
+      'Cubase Nivel Avanzado',
+      'Gestión de Proyectos Musicales'
+    ],
+    experiences: [
+      {
+        id: 1,
+        title: "El Rescatista",
+        subtitle: "Recuperación de proyectos & Manejo de Crisis",
+        company: "Sovos / Acepta.com",
+        summary: "Estabilización de ecosistemas críticos, proyectos perdidos y recuperación de roadmaps en llamas.",
+        details: [
+          "Project Recovery: Estabilización de ecosistemas críticos con alto foco en cumplimiento.",
+          "Definición de estrategias de normalización y control ante escenarios críticos de alta demanda.",
+          "Excelencia relacional con stakeholders C-Level para restablecer confianzas."
+        ]
+      },
+      {
+        id: 2,
+        title: "El Salón de la Fama",
+        subtitle: "Strategic Account Leadership",
+        company: "Sovos / Acepta.com",
+        summary: "Liderazgo de innovaciones tecnológicas para los gigantes de la industria.",
+        details: [
+          "Implementaciones normativas para Scotiabank, Transbank, Grupo Claro, Telefónica, Entel y Copec.",
+          "Gestión de proyectos abarcando banca, telco, gobierno e industria.",
+          "Transformación de requerimientos legales en soluciones tecnológicas de alto rendimiento."
+        ]
+      },
+      {
+        id: 3,
+        title: "El Motor Invisible",
+        subtitle: "Excelencia Técnica & de Cumplimiento",
+        company: "Sovos / Acepta.com",
+        summary: "Middleware y Facturación Electrónica con 100% de cumplimiento.",
+        details: [
+          "Supervisión de proyectos de alta complejidad en Servicios Transaccionales e Integración.",
+          "Aseguré el 100% de cumplimiento normativo en proyectos críticos regionales.",
+          "Digitalización de procesos asegurando entregas claras y estratégicas."
+        ]
+      },
+      {
+        id: 4,
+        title: "El Conductor",
+        subtitle: "Liderazgo Regional",
+        company: "Chile, Perú & Brasil",
+        summary: "Orquestación de equipos multidisciplinarios en mercados internacionales.",
+        details: [
+          "Liderazgo de equipos multidisciplinarios en Chile, Perú y Brasil.",
+          "Coordinación de consultores técnicos y especialistas para asegurar continuidad operativa.",
+          "Gestión de recursos bajo demanda para maximizar la satisfacción del cliente."
+        ]
+      }
+    ]
   },
   en: {
     nav: ['Home', 'Profile', 'Experience', 'Skills', 'Tech'],
-    heroSub: 'Senior Project Manager | Scrum Master | Digital Transformation | Project Recovery',
-    heroSectionTitle: 'Professional Profile',
-    heroText1: 'Over ',
-    heroText2: '15 years',
-    heroText3: ' at the intersection of ',
-    heroText4: 'technology, business strategy, and user experience',
-    heroText5: ', spearheading complex system integrations and digital transformation projects across Latam and Europe. Management and control in ',
-    heroText6: 'Project Recovery',
-    heroText7: ', stabilizing critical ecosystems and restoring stakeholder trust at the C-level. Expert in SaaS solutions, system integrations, middleware, Electronic Invoicing, custom developments, product lifecycle and continuous delivery from a strategic perspective management and overseeing Transactional Services with a sharp focus on regulatory compliance and organizational agility.',
-    downloadBtn: 'Download PDF',
-    // ... agrega el resto
+    heroTitle: "Juan Sebastian",
+    heroSubtitle: "Senior Project & Product Manager | SCRUM | Digital Transformation | Project Recovery",
+    downloadBtn: "Download CV",
+    profileTitle: "Professional Profile",
+    profileText1: "Strategic leader with over ",
+    profileText2: "15 years",
+    profileText3: " of experience at the intersection of ",
+    profileText4: "technology, business, and user experience",
+    profileText5: ". Specialist in Digital Product Lifecycle (SaaS) management and regional digital transformation. Expert in Project & ",
+    profileText6: "Product Recovery",
+    profileText7: ", with a proven track record of maximizing business value and ROI through the stabilization of critical ecosystems.",
+    expHeader: "Strategic Journey",
+    skillsHeader: "Strategy & Discipline",
+    mgmtTitle: "Management & Leadership",
+    musicTitle: "Parallel Pursuits",
+    techHeader: "Tech Stack",
+    ctaModal: "Want to see the KPIs behind the magic?",
+    ctaLink: "Download the technical breakdown here",
+    skillsList: [
+      'Project Recovery & Crisis Management',
+      'Scrum & Agile Methodologies',
+      'Stakeholder Management (C-Level)',
+      'ITIL & Change Management',
+      'Continuous Delivery Lifecycle',
+      'English B2 (Upper Intermediate)'
+    ],
+    musicList: [
+      'Home Studio & Sound Design',
+      'Sound Production & Mixing',
+      'Hard Rock Composition',
+      'Cubase Advanced User',
+      'Music Project Management'
+    ],
+    experiences: [
+      {
+        id: 1,
+        title: "The Fixer",
+        subtitle: "Project Recovery & Crisis Management",
+        company: "Sovos / Various",
+        summary: "Stabilizing critical ecosystems and recovering roadmaps on fire.",
+        details: [
+          "Project Recovery: Stabilization of critical ecosystems with a high focus on compliance.",
+          "Definition of normalization and control strategies for high-demand critical scenarios.",
+          "Relational excellence with C-Suite stakeholders to restore trust."
+        ]
+      },
+      {
+        id: 2,
+        title: "The Hall of Fame",
+        subtitle: "Strategic Account Leadership",
+        company: "Sovos / Acepta",
+        summary: "Leading technological innovations for industry giants.",
+        details: [
+          "Regulatory implementations for Scotiabank, Transbank, Grupo Claro, Telefonica, Entel, and Copec.",
+          "Project management spanning banking, telco, government, and industrial sectors.",
+          "Transforming legal requirements into high-performance technical solutions."
+        ]
+      },
+      {
+        id: 3,
+        title: "The Invisible Engine",
+        subtitle: "Technical & Compliance Excellence",
+        company: "Sovos / Acepta",
+        summary: "Middleware and e-Invoicing with 100% compliance.",
+        details: [
+          "Supervision of high-complexity projects in Transactional Services and Integration.",
+          "Ensured 100% regulatory compliance in critical regional projects.",
+          "Process digitalization ensuring clear and strategic delivery."
+        ]
+      },
+      {
+        id: 4,
+        title: "The Conductor",
+        subtitle: "Regional Leadership",
+        company: "Chile, Peru & Brazil",
+        summary: "Orchestrating multidisciplinary teams in international markets.",
+        details: [
+          "Leadership of multidisciplinary teams in Chile, Peru, and Brazil.",
+          "Coordination of technical consultants and specialists to ensure operational continuity.",
+          "Resource management on demand to maximize customer satisfaction."
+        ]
+      }
+    ]
   }
 };
 
-const experiences = [
-  {
-    id: 1,
-    company: "Soho Humantech",
-    role: "Project Manager SSR",
-    period: "2025",
-    summary: "Gestión de proyectos End-to-End y desarrollo de plataformas SaaS, Design System e Inteligencia Artificial.",
-    details: [
-      "Lideré células multidisciplinarias (Desarrollo, QA, Líderes Técnicos) utilizando herramientas de Inteligencia Artificial y JIRA para el manejo de backlog y ceremonias, asegurando transparencia y cumplimiento de hitos.",
-      "Sector Energía: Dirigí iniciativa de Design System (Research, Discovery, Blueprint) logrando la optimización de procesos operativos y cierre de brechas en terreno.",
-      "Sector Industrial (Aceros): Gestioné el desarrollo de una plataforma SaaS para el control y administración de capacitaciones críticas.",
-      "Reporte directo a PMO y Gerencia, con presentaciones de avance a Directorios y coordinación con equipos TI internos y externos."
-    ]
-  },
-  {
-    id: 2,
-    company: "Sovos",
-    role: "Project Manager II",
-    period: "2020 - 2025",
-    summary: "Dirección de portafolio de cuentas críticas, proyectos de integración y transformación digital para Grandes Cuentas en Chile, Perú y Brasil.",
-    details: [
-      "Project Recovery: Estabilización de ecosistemas críticos con alto foco en cumplimiento.",
-      "Definición de estrategias de normalización y control ante escenarios críticos de alta demanda. Excelencia relacional con clientes.",
-      "Lideré innovaciones tecnológicas e implementaciones normativas para clientes críticos de la compañía como Scotiabank, Transbank, Grupo Claro, Grupo Telefónica, ENTEL, Copec, Autopistas, ESSBIO, Grupo Banmédica, SK, Grupo Astara, Grupo Derco, Tricolor, Larraín Vial, entre muchas otras, abarcando variados sectores empresariales.",
-      "Supervisé proyectos de alta complejidad en Facturación Electrónica, Integración de Sistemas, Servicios Transaccionales, Digitalización de Procesos, asegurando cumplimiento normativo y corporativo, entregas claras y estratégicas a clientes finales.",
-      "Lideré equipos coordinando recursos como Technical & Solutions Consultants y de diferentes áreas, bajo demanda, para asegurar la continuidad operativa y satisfacción del cliente.",
-      "Aseguré el 100% de cumplimiento normativo en proyectos de Facturación Electrónica e Integración.",
-      "Liderazgo de equipos multidisciplinarios en Chile, Perú y Brasil."
-    ]
-  },
-  {
-    id: 3,
-    company: "Acepta.com",
-    role: "Consultor de Proyectos Senior",
-    period: "2013 - 2020",
-    summary: "Hito DIPRES y automatización de operaciones estatales. Proyectos de integración y servicios de Facturación Electrónica y desarrollos a medida.",
-    details: [
-      "Hito DIPRES: Lideré la automatización de operaciones contables del Estado de Chile. Proyecto de interconexión y automatización de operaciones contables, agilizando pagos para mejorar el flujo de caja del Estado de Chile, integrando plataformas de pago, cobro, asignación y compras públicas.",
-      "En 2013 inicié mi trayectoria en la compañía participando en proyectos operativos, evolucionando rápidamente a la gestión de clientes estratégicos en 2014, con responsabilidad total en la ejecución y personal técnico a cargo.",
-      "En 2016, tomé el rol de Jefe de Proyectos para Grandes Cuentas. Coordiné equipos multidisciplinarios para proyectos en Chile, Bélgica, Turquía, Italia y Latam, abriendo nuevos nichos de negocio.",
-      "En 2018, asumí como Consultor de Proyectos para Grandes Cuentas, liderando implementaciones tecnológicas y coordinando equipos técnicos, de redes e infraestructura."
-    ]
-  },
-  {
-    id: 4,
-    company: "Proyectos Anteriores",
-    role: "Rebsol: Jefe de Proyectos y Otras Experiencias",
-    period: "2007- 2013",
-    summary: "Foco en sector público y privado (Salud/Desarrollo).",
-    details: [
-      "Gestión integral del ciclo de vida de desarrollo de software (SDLC) para el sector salud, desde la toma de requerimientos hasta la puesta en marcha y capacitación.",
-      "Supervisión de equipos de desarrollo y QA, asegurando la calidad en entregables críticos.",
-      "Supervisión de proyectos en terreno, proporcionando soluciones inmediatas a problemáticas que requieren alta capacidad de gestión y liderazgo (área salud).",
-      "Ejercí roles técnicos y de soporte en Image Group, Comertex, Aguas y Riles, UDLA y Práctica Laboral en Komatsu Cummins."
-    ]
-  }
-];
-
 export default function CVPage() {
-  const [selectedExp, setSelectedExp] = useState<typeof experiences[0] | null>(null);
-
   const [lang, setLang] = useState<'es' | 'en'>('es');
-const t = content[lang]; // "t" será nuestro traductor dinámico
+  const [selectedExp, setSelectedExp] = useState<any | null>(null);
+  const t = content[lang];
 
-  // EFECTO PARA BLOQUEAR ZOOM EN MÓVIL
   useEffect(() => {
-    // 1. Inyectar meta tag para evitar escalado
-    const meta = document.createElement('meta');
-    meta.name = "viewport";
-    meta.content = "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no";
-    document.getElementsByTagName('head')[0].appendChild(meta);
-
-    // 2. Prevenir zoom por gestos (especialmente en iOS Safari)
-    const handleGestureStart = (e: Event) => e.preventDefault();
-    document.addEventListener('gesturestart', handleGestureStart);
-
-    return () => {
-      document.removeEventListener('gesturestart', handleGestureStart);
-    };
+    const handleGesture = (e: Event) => e.preventDefault();
+    document.addEventListener('gesturestart', handleGesture);
+    return () => document.removeEventListener('gesturestart', handleGesture);
   }, []);
 
   useEffect(() => {
-    if (selectedExp) document.body.style.overflow = 'hidden';
-    else document.body.style.overflow = 'unset';
+    document.body.style.overflow = selectedExp ? 'hidden' : 'unset';
   }, [selectedExp]);
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 font-sans scroll-smooth">
       
-      {/* NAVBAR (Ahora visible en todos los dispositivos con ajuste de tamaño) */}
-      <nav className="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] md:w-auto">
-        <motion.ul 
-          initial={{ y: -100, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          className="flex justify-around md:justify-center gap-2 md:gap-6 bg-slate-900/95 backdrop-blur-md border border-slate-700 px-4 md:px-8 py-3 rounded-full shadow-2xl"
-        >
-          {['Home', 'Perfil', 'Experiencia', 'Skills', 'Tech'].map((item) => (
-            <li key={item}>
-              <a href={`#${item.toLowerCase()}`} className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.1em] md:tracking-[0.2em] text-slate-400 hover:text-blue-400 transition-colors">
-                {item}
-              </a>
+      {/* NAVBAR */}
+      <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] md:w-auto">
+        <motion.ul className="flex items-center justify-between md:justify-center gap-2 md:gap-8 bg-slate-900/95 backdrop-blur-md border border-slate-700 px-4 md:px-10 py-4 rounded-2xl md:rounded-full shadow-2xl">
+          {t.nav.map((item) => (
+            <li key={item} className="hidden md:block">
+              <a href={`#${item.toLowerCase()}`} className="text-[10px] md:text-xs font-black uppercase tracking-wider text-slate-400 hover:text-blue-400 transition-colors">{item}</a>
             </li>
           ))}
+          <button 
+            onClick={() => setLang(lang === 'es' ? 'en' : 'es')}
+            className="flex items-center gap-2 bg-blue-600/20 text-blue-400 border border-blue-500/30 px-3 py-1 rounded-full text-[10px] font-black uppercase hover:bg-blue-600 hover:text-white transition-all"
+          >
+            <Globe size={12} /> {lang.toUpperCase()}
+          </button>
         </motion.ul>
       </nav>
 
-      {/* HEADER / HERO */}
-    <section id="home">
-      <header className="bg-slate-900 text-white pt-28 pb-16 px-6 relative overflow-hidden border-b border-blue-900/30">
-        <div className="max-w-4xl mx-auto relative z-10 flex flex-col md:flex-row items-center gap-10">
+      {/* HERO SECTION - RECOUPERADO CONTACTO */}
+      <section id="home" className="bg-slate-900 text-white pt-32 pb-16 px-6 border-b border-blue-900/30">
+        <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-10">
           <div className="flex-1 text-center md:text-left">
             <h1 className="text-4xl md:text-6xl font-black mb-4 tracking-tighter uppercase italic">
-              Juan Sebastián <span className="text-blue-500">Navarro G.</span>
+              {t.heroTitle} <span className="text-blue-500">Navarro G.</span>
             </h1>
-            <p className="text-[8px] md:text-base text-slate-400 font-medium mb-8 max-w-xl">
-              {t.heroSub}
-              {/*Senior Project Manager | Scrum | Transformación Digital | Project Recovery*/}
-            </p>
+            <p className="text-xs md:text-base text-slate-400 font-medium mb-8">{t.heroSubtitle}</p>
             
-            <div className="flex flex-wrap justify-center md:justify-start gap-4">
+            {/* BOTONES DE ACCIÓN RESTAURADOS */}
+            <div className="flex flex-wrap justify-center md:justify-start gap-4 mb-8">
               <a href="mailto:snavarro@live.cl" className="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 px-4 py-2 rounded-lg border border-slate-700 text-xs transition">
                 <Mail size={14}/> snavarro@live.cl
               </a>
@@ -166,78 +236,58 @@ const t = content[lang]; // "t" será nuestro traductor dinámico
                 <Link size={14}/> LinkedIn
               </a>
               <motion.a 
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.05 }} 
                 whileTap={{ scale: 0.95 }}
                 href="/CV_JSNG_2026.pdf" 
                 download 
-                className="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 px-6 py-2 rounded-lg transition font-bold shadow-lg text-xs">
-                <FileDown size={16} /> Descargar PDF
+                className="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 px-6 py-2 rounded-lg transition font-bold shadow-lg text-xs"
+              >
+                <FileDown size={16} /> {t.downloadBtn}
               </motion.a>
-              <button 
-  onClick={() => setLang(lang === 'es' ? 'en' : 'es')}
-  className="border border-blue-500/50 px-2 py-1 rounded text-[10px] font-black uppercase hover:bg-blue-600 transition-colors"
->
-  {lang === 'es' ? 'English Version' : 'Versión Español'}
-</button>
             </div>
           </div>
-          <motion.img 
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            src="/profile_JSNG.jpg" 
-            alt="Juan Sebastián Navarro"
-            className="w-35 h-35 md:w-52 md:h-52 rounded-full border-4 border-slate-800 shadow-2xl object-cover" />
-            
+          <img src="/profile_JSNG.jpg" className="w-40 h-40 md:w-52 md:h-52 rounded-full border-4 border-slate-800 object-cover shadow-2xl" />
         </div>
-       
-      </header>
-    </section>
+      </section>
 
-      <main className="max-w-4xl mx-auto py-12 md:py-20 px-6 grid gap-16 md:gap-24">
+      <main className="max-w-5xl mx-auto py-20 px-6 space-y-24">
         
         {/* PERFIL */}
-        <section id="perfil" className="scroll-mt-20">
-          <h2 className="text-xs font-black text-blue-600 uppercase tracking-[0.4em] mb-6 underline decoration-2 underline-offset-8 decoration-blue-500/30">{t.heroSectionTitle}</h2>
-          <p className="text-[15px] leading-relaxed font-light text-justify text-slate-700">
-            {t.heroText1}<span className="font-bold text-slate-900">{t.heroText2}</span>{t.heroText3}<span className="font-bold text-slate-900">{t.heroText4}</span>{t.heroText5}<span className="text-blue-600 font-medium italic">{t.heroText6}</span>{t.heroText7}
-          </p>
+        <section id="perfil" className="scroll-mt-28">
+          <h2 className="text-xs font-black text-blue-600 uppercase tracking-[0.4em] mb-6 underline decoration-2 underline-offset-8 decoration-blue-500/30">{t.profileTitle}</h2>
+          <p className="text-lg md:text-xl leading-relaxed font-light text-slate-700 italic">"{t.profileText1}<span className="font-bold text-slate-900">{t.profileText2}</span>{t.profileText3}<span className="font-bold text-slate-900">{t.profileText4}</span>{t.profileText5}<span className="text-blue-600 font-medium italic">{t.profileText6}</span>{t.profileText7}"</p>
         </section>
 
-        {/* EXPERIENCIA */}
-        <section id="experiencia" className='scroll-mt-20'>
-          <h2 className="text-xs font-black text-blue-600 uppercase tracking-[0.4em] mb-12">Trayectoria (Click para detalles)</h2>
-          <div className="relative border-l-2 border-slate-200 pl-6 md:pl-8 space-y-12">
-            {experiences.map((exp) => (
+        {/* EXPERIENCIA (GRID CARDS) */}
+        <section id="experiencia" className="scroll-mt-28">
+          <h2 className="text-xs font-black text-blue-600 uppercase tracking-[0.4em] mb-12">{t.expHeader}</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {t.experiences.map((exp: any) => (
               <motion.div 
-                key={exp.id}
-                whileHover={{ x: 10 }}
-                onClick={() => setSelectedExp(exp)}
-                className="relative cursor-pointer group">
-                <div className="absolute -left-[31px] md:-left-[39px] top-1.5 w-4 h-4 md:w-5 md:h-5 rounded-full bg-slate-900 border-4 border-blue-500 group-hover:scale-125 transition-transform" />
-                <h3 className="text-xl md:text-2xl font-black uppercase tracking-tighter group-hover:text-blue-600 transition-colors">{exp.company}</h3>
-                <p className="text-blue-600 font-bold text-[10px] md:text-xs uppercase mb-2 italic">{exp.role} / {exp.period}</p>
-                <p className="text-slate-500 text-xs md:text-sm flex items-center gap-2">
-                  {exp.summary} <ChevronRight size={14} className="text-blue-500 hidden md:block" />
-                </p>
+                key={exp.id} whileHover={{ y: -10 }} onClick={() => setSelectedExp(exp)}
+                className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl hover:border-blue-200 transition-all cursor-pointer group"
+              >
+                <div className="mb-4 flex justify-between items-start">
+                  <span className="bg-slate-100 text-slate-500 text-[9px] font-black px-2 py-1 rounded uppercase tracking-widest">{exp.company}</span>
+                  <ChevronRight size={20} className="text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </div>
+                <h3 className="text-2xl font-black uppercase tracking-tighter mb-1">{exp.title}</h3>
+                <p className="text-blue-600 font-bold text-xs uppercase mb-4 italic">{exp.subtitle}</p>
+                <p className="text-slate-500 text-sm leading-relaxed">{exp.summary}</p>
               </motion.div>
             ))}
           </div>
         </section>
 
         {/* SKILLS */}
-        <section id="skills" className="grid md:grid-cols-2 gap-8 scroll-mt-20">
-          <h2 className="text-xs font-black text-blue-600 uppercase tracking-[0.4em] mb-2 col-span-full">Intereses & Skills</h2>
-          <div className="bg-white p-6 md:p-8 rounded-2xl shadow-xl border border-slate-100">
+        <section id="skills" className="grid md:grid-cols-2 gap-8 scroll-mt-28">
+          <h2 className="text-xs font-black text-blue-600 uppercase tracking-[0.4em] mb-2 col-span-full">{t.skillsHeader}</h2>
+          <div className="bg-white p-8 rounded-3xl shadow-xl border border-slate-100">
             <h3 className="flex items-center gap-3 font-black text-slate-900 mb-6 text-lg uppercase italic border-b pb-2">
-              <ShieldCheck className="text-blue-600" /> Gestión
+              <ShieldCheck className="text-blue-600" /> {t.mgmtTitle}
             </h3>
             <ul className="space-y-3">
-              {['Project Recovery & Crisis Management',
-                'Scrum & Metodologías Ágiles',
-                'Stakeholder Management (C-Level)',
-                'ITIL & Gestión del Cambio',
-                'Ciclo de Vida de Entrega Continua',
-                'Inglés B2 (4A Upper Intermediate by Blended Learning)'].map((skill) => (
+              {t.skillsList.map((skill: string) => (
                 <li key={skill} className="flex items-center gap-3 text-sm text-slate-600 font-medium">
                   <CheckCircle2 size={16} className="text-blue-500" /> {skill}
                 </li>
@@ -245,12 +295,12 @@ const t = content[lang]; // "t" será nuestro traductor dinámico
             </ul>
           </div>
 
-          <div className="bg-slate-900 p-6 md:p-8 rounded-2xl shadow-xl text-white">
+          <div className="bg-slate-900 p-8 rounded-3xl shadow-xl text-white">
             <h3 className="flex items-center gap-3 font-black text-blue-400 mb-6 text-lg uppercase italic border-b border-slate-800 pb-2">
-              <Music /> Actividades Paralelas
+              <Music /> {t.musicTitle}
             </h3>
             <ul className="space-y-3">
-              {['Home Studio', 'Producción de Sonido & Mezcla', 'Composición Hard Rock', 'Cubase advanced user', 'Gestión de Proyectos Musicales',].map((item) => (
+              {t.musicList.map((item: string) => (
                 <li key={item} className="flex items-center gap-3 text-sm text-slate-300">
                   <div className="w-1.5 h-1.5 bg-blue-500 rounded-full" /> {item}
                 </li>
@@ -259,12 +309,12 @@ const t = content[lang]; // "t" será nuestro traductor dinámico
           </div>
         </section>
 
-        {/* TECH STACK */}
-        <section id="tech" className="scroll-mt-20 pb-10">
-          <h2 className="text-xs font-black text-blue-600 uppercase tracking-[0.4em] mb-10">Stack Tecnológico</h2>
-          <div className="flex flex-wrap justify-center gap-2 md:gap-3">
-            {['IA', 'Agentes IA', 'Machine Learning', 'Docker', 'N8N', 'Git', 'Next.js', 'SCRUM', 'JIRA', 'Facturación Electrónica', 'Custom Design & Development', 'MS Project', 'Cubase', 'FabFilter'].map(tech => (
-              <span key={tech} className="bg-white text-slate-800 px-3 md:px-4 py-2 rounded-full text-[9px] md:text-[10px] font-black uppercase border border-slate-200 shadow-sm">
+        {/* TECH STACK RESTAURADO */}
+        <section id="tech" className="scroll-mt-28 text-center pb-20">
+          <h2 className="text-xs font-black text-blue-600 uppercase tracking-[0.4em] mb-10">{t.techHeader}</h2>
+          <div className="flex flex-wrap justify-center gap-3">
+            {['IA', 'SaaS', 'Docker', 'Git', 'Next.js', 'SCRUM', 'JIRA', 'Middleware', 'N8N', 'FabFilter', 'n8n', 'PostgreSQL', 'XML/XSLT'].map(tech => (
+              <span key={tech} className="bg-slate-900 text-white px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-widest border border-slate-700 shadow-lg">
                 {tech}
               </span>
             ))}
@@ -277,32 +327,21 @@ const t = content[lang]; // "t" será nuestro traductor dinámico
         {selectedExp && (
           <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setSelectedExp(null)} className="absolute inset-0 bg-slate-900/90 backdrop-blur-sm" />
-            
-            <motion.div 
-              initial={{ scale: 0.9, opacity: 0, y: 20 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.9, opacity: 0, y: 20 }}
-              className="relative bg-white w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden border border-slate-200 max-h-[90vh] flex flex-col"
-            >
-              <button onClick={() => setSelectedExp(null)} className="absolute top-4 right-4 p-2 hover:bg-slate-100 rounded-full z-10"><X size={24} className="text-slate-500" /></button>
-
-              <div className="p-6 md:p-12 overflow-y-auto">
-                <h2 className="text-2xl md:text-4xl font-black text-slate-900 uppercase tracking-tighter mb-2 italic leading-tight">{selectedExp.company}</h2>
-                <div className="flex flex-wrap items-center gap-2 mb-8">
-                  <span className="bg-blue-600 text-white text-[9px] font-black px-2 py-1 uppercase">{selectedExp.role}</span>
-                  <span className="text-slate-400 font-bold text-[10px] uppercase tracking-widest">{selectedExp.period}</span>
-                </div>
-
-                <div className="space-y-6">
-                  <h4 className="text-xs font-black text-blue-600 uppercase tracking-widest border-b pb-2">Hitos Clave</h4>
-                  <ul className="space-y-4">
-                    {selectedExp.details.map((detail, idx) => (
-                      <li key={idx} className="flex items-start gap-3 text-slate-700">
-                        <ChevronRight size={18} className="text-blue-500 shrink-0 mt-0.5" />
-                        <span className="text-sm md:text-base font-medium">{detail}</span>
-                      </li>
-                    ))}
-                  </ul>
+            <motion.div initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.9, opacity: 0 }} className="relative bg-white w-full max-w-2xl rounded-3xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col">
+              <button onClick={() => setSelectedExp(null)} className="absolute top-6 right-6 p-2 hover:bg-slate-100 rounded-full z-10"><X size={24} /></button>
+              <div className="p-8 md:p-12 overflow-y-auto">
+                <h2 className="text-3xl md:text-4xl font-black text-slate-900 uppercase tracking-tighter mb-4 italic">{selectedExp.title}</h2>
+                <ul className="space-y-4 mb-12">
+                  {selectedExp.details.map((detail: string, idx: number) => (
+                    <li key={idx} className="flex items-start gap-3 text-slate-700">
+                      <CheckCircle2 size={20} className="text-blue-500 shrink-0 mt-1" />
+                      <span className="text-base font-medium">{detail}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="bg-blue-50 p-6 rounded-2xl border border-blue-100 text-center">
+                  <p className="text-blue-900 font-black uppercase text-xs tracking-widest mb-2">{t.ctaModal}</p>
+                  <a href="/CV_JSNG_2026.pdf" download className="text-blue-600 font-bold text-sm underline hover:text-blue-800 transition-colors">{t.ctaLink}</a>
                 </div>
               </div>
             </motion.div>
@@ -310,24 +349,9 @@ const t = content[lang]; // "t" será nuestro traductor dinámico
         )}
       </AnimatePresence>
 
-      <footer className="bg-slate-900 py-7 text-center text-slate-400 text-[12px] tracking-[0.5em] border-t border-slate-800 px-6">
-        <p>© 2026 Juan Sebastián Navarro G. | Management & Tech<br/>
-        <a href="mailto:snavarro@live.cl" className="text-xs font-black tracking-widest text-cyan-600 hover:text-cyan-700 underline">¿Quieres agendar una reunión?</a>
-        </p>
-      </footer>
-
-      {/* WHATSAPP */}
-      <motion.a
-        initial={{ scale: 0 }} animate={{ scale: 1 }}
-        whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}
-        href="https://wa.me/56997973249?text=Hola%20Juan%20Sebastian,%20vi%20tu%20sitio%20y%20me%20gustaria%20conversar"
-        target="_blank"
-        className="fixed bottom-6 right-6 z-[110] bg-green-500 text-white p-3 md:p-4 rounded-full shadow-2xl border-2 border-white flex items-center justify-center group">
+      <a href="https://wa.me/56997973249" target="_blank" className="fixed bottom-6 right-6 z-[110] bg-green-500 text-white p-4 rounded-full shadow-2xl border-2 border-white hover:scale-110 transition-transform">
         <MessageCircle size={24} />
-        <span className="absolute right-16 bg-slate-900 text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap hidden md:block">
-          ¿Hablamos?
-        </span>
-      </motion.a>
+      </a>
     </div>
   );
 }
